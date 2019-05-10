@@ -69,6 +69,7 @@ public class MainActivity extends AppCompatActivity {
         locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
 
         permissionExternalStorage();
+        permissionGPS();
         addLocationListener();
 
         recordButton = findViewById(R.id.recordButton);
@@ -151,6 +152,7 @@ public class MainActivity extends AppCompatActivity {
     {
         ArrayList<Integer> speedTime = new ArrayList<>();
         double total = 0;
+        minAltitude = trackpoints.get(0).getAltitude();
         for(int i = 0; i < trackpoints.size() - 1; i++)
         {
             Location loc1 = trackpoints.get(i);
@@ -269,6 +271,26 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    public void permissionGPS()
+    {
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED
+                && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+
+            ActivityCompat.requestPermissions(MainActivity.this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION},
+                    MY_PERMISSION_REQUEST_ACCESS_FINE_LOCATION);
+            ActivityCompat.requestPermissions(MainActivity.this, new String[]{Manifest.permission.ACCESS_COARSE_LOCATION},
+                    MY_PERMISSION_REQUEST_ACCESS_COARSE_LOCATION);
+            // TODO: Consider calling
+            //    ActivityCompat#requestPermissions
+            // here to request the missing permissions, and then overriding
+            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+            //                                          int[] grantResults)
+            // to handle the case where the user grants the permission. See the documentation
+            // for ActivityCompat#requestPermissions for more details.
+            return;
+        }
     }
 
     //Ask for permission to write in the external storage
