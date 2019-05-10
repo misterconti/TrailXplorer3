@@ -27,13 +27,13 @@
         android:text="Distance"/>
 
     <TextView
-        android:id="@+id/record_max_altitude"
+        android:id="@+id/AverageSpeed"
         android:layout_marginTop="20dp"
         android:textSize="22sp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Max Altitude"
-        />
+        android:text="Average Speed"/>
+
 
     <TextView
         android:id="@+id/record_min_altitude"
@@ -45,12 +45,13 @@
         />
 
     <TextView
-        android:id="@+id/AverageSpeed"
+        android:id="@+id/record_max_altitude"
         android:layout_marginTop="20dp"
         android:textSize="22sp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Average Speed"/>
+        android:text="Max Altitude"
+        />
 
     <TextView
         android:id="@+id/speed"
