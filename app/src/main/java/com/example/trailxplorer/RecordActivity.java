@@ -77,6 +77,7 @@ public class RecordActivity extends AppCompatActivity {
             // speedTxt.setText("No speed to speak of");
         }
     }
+
     private float[] getRandomData() {
         return new float[] { 10, 12, 7, 14, 15, 19, 13, 2, 10, 13, 13, 10, 15, 14 };
     }
