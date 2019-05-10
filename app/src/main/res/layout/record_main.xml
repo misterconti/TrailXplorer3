@@ -59,7 +59,7 @@
         android:textSize="22sp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Graph showing the speed evolution:"/>
+        android:text="Graph showing the evolution of speed:"/>
     
     <com.example.trailxplorer.LineChartView
         android:id="@+id/linechart"
