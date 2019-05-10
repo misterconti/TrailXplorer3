@@ -3,8 +3,10 @@ package com.example.trailxplorer;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 import android.widget.TextView;
 
+import java.text.AttributedCharacterIterator;
 import java.util.ArrayList;
 
 public class RecordActivity extends AppCompatActivity {
@@ -15,13 +17,14 @@ public class RecordActivity extends AppCompatActivity {
     String distance;
     String averageSpeed;
     ArrayList<Integer> speed;
-
     TextView maxAltitudeTxt;
     TextView minAltitudeTxt;
     TextView chronoTxt;
     TextView distanceTxt;
     TextView averageSpeedTxt;
     TextView speedTxt;
+    LineChartView lineChart;
+
 
     @Override
     public void onCreate(Bundle savedInstanceState)
@@ -36,6 +39,7 @@ public class RecordActivity extends AppCompatActivity {
         distanceTxt = findViewById(R.id.distance);
         averageSpeedTxt = findViewById(R.id.AverageSpeed);
         speedTxt = findViewById(R.id.speed);
+        lineChart = findViewById(R.id.linechart);
 
         //Add a title to the activity and enable the Home Button
         getSupportActionBar().setTitle("Trail Analytics");
@@ -69,7 +73,11 @@ public class RecordActivity extends AppCompatActivity {
         }
         else
         {
-            speedTxt.setText("No speed to speak of");
+            lineChart.setChartData(getRandomData()); // NE PAS LE METTRE DANS ELSE
+            // speedTxt.setText("No speed to speak of");
         }
+    }
+    private float[] getRandomData() {
+        return new float[] { 10, 12, 7, 14, 15, 19, 13, 2, 10, 13, 13, 10, 15, 14 };
     }
 }
