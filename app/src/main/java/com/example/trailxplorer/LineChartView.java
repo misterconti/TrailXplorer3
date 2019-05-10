@@ -22,14 +22,8 @@ public class LineChartView extends View {
         super(context, attrs);
     }
 
-    /**
-     * Sets the y data points of the line chart. The data points are assumed to
-     * be positive and equally spaced on the x-axis. The line chart will be
-     * scaled so that the entire height of the view is used.
-     *
-     * @param datapoints
-     *            y values of the line chart
-     */
+    // Setting the y points
+    // datapoints are y values of the chart
     public void setChartData(float[] datapoints) {
         this.datapoints = datapoints.clone();
         invalidate();
@@ -82,11 +76,8 @@ public class LineChartView extends View {
 
         paint.setStyle(Style.STROKE);
         paint.setStrokeWidth(4);
-        paint.setColor(0xFF33B5E5);
-        paint.setAntiAlias(true);
-        paint.setShadowLayer(4, 2, 2, 0x80000000);
+        paint.setColor(0xFF33B5F4);
         canvas.drawPath(path, paint);
-        paint.setShadowLayer(0, 0, 0, 0);
     }
 
     private float getMax(float[] array) {
