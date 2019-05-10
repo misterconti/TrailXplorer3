@@ -57,28 +57,33 @@ public class RecordActivity extends AppCompatActivity {
         //Put the details on the screen
         maxAltitudeTxt.setText("Max Altitude: " + maxAlt + " in WGS 84 reference ellipsoid");
         minAltitudeTxt.setText("Min Altitude: " + minAlt + " in WGS 84 reference ellipsoid");
-        chronoTxt.setText("Time taken: " + chronometer);
+        chronoTxt.setText("Time taken: " + chronometer + " min");
         distanceTxt.setText("Distance travelled: " + distance + " m");
         averageSpeedTxt.setText("Average Speed: " + averageSpeed + " k/h");
 
         if(speed.size() > 0)
         {
-            String s = "";
+         /*   String s = "";
             for(int j = 0; j < speed.size() - 1; j++)
             {
                 s += "Speed " + j + ": " + speed.get(j) + " k/h\n";
             }
             s += "Speed " + (speed.size() - 1) + ": " + speed.get(speed.size() - 1) + " k/h";
             speedTxt.setText(s);
+            */
+
+            float[] ok = new float[speed.size()];
+            for(int k = 0; k < speed.size(); k++)
+            {
+                ok[k] = speed.get(k);
+            }
+            lineChart.setChartData(ok);
         }
         else
         {
-            lineChart.setChartData(getRandomData()); // NE PAS LE METTRE DANS ELSE
-            // speedTxt.setText("No speed to speak of");
+            float[] ok = new float[]{10};
+            lineChart.setChartData(ok);
+            speedTxt.setText("No speed to show");
         }
-    }
-
-    private float[] getRandomData() {
-        return new float[] { 10, 12, 7, 14, 15, 19, 13, 2, 10, 13, 13, 10, 15, 14 };
     }
 }
